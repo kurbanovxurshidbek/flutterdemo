@@ -37,6 +37,10 @@ dependencies:
   # Firebase libraries
   firebase_core: ^1.19.1
   firebase_crashlytics: ^2.8.1
+  firebase_dynamic_links: ^4.1.1
+  firebase_remote_config: ^2.0.11
+
+  logger: ^1.1.0
 
 dev_dependencies:
   flutter_test:
