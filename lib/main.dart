@@ -71,8 +71,8 @@ class _MyHomePageState extends State<MyHomePage> {
             }
           })
         });
-    LinkService.createShortLink("200002");
-    //initConfig();
+    //LinkService.createShortLink("200002");
+    initConfig();
   }
 
   /**
@@ -81,7 +81,7 @@ class _MyHomePageState extends State<MyHomePage> {
   void initConfig() async {
     await remoteConfig.setConfigSettings(RemoteConfigSettings(
       fetchTimeout: const Duration(
-          seconds: 1), // a fetch will wait up to 10 seconds before timing out
+          seconds: 10), // a fetch will wait up to 10 seconds before timing out
       minimumFetchInterval: const Duration(
           seconds:
               10), // fetch parameters will be cached for a maximum of 1 hour
@@ -113,6 +113,8 @@ class _MyHomePageState extends State<MyHomePage> {
       //LinkService.createLongLink("100001");
       //fetchConfig();
     });
+    var str1 = reverse("pdp academy");
+    var str2 = reverse("pdp university");
   }
 
   @override
@@ -144,5 +146,13 @@ class _MyHomePageState extends State<MyHomePage> {
         child: const Icon(Icons.add),
       ), // This trailing comma makes auto-formatting nicer for build methods.
     );
+  }
+
+  String reverse(String s) {
+    var sb = StringBuffer();
+    for (var i = s.length - 1; i >= 0; --i) {
+      sb.writeCharCode(s.codeUnitAt(i));
+    }
+    return sb.toString();
   }
 }
